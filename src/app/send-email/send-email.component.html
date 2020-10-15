@@ -1,0 +1,52 @@
+<div class="crearContacto">
+  <h1 style="margin-bottom: 30px;margin-top: 70px;">Enviar Newsletter</h1>
+  <form [formGroup]="formNewsletter" class="example">
+
+    <div class="nameNewsletter">
+      <mat-form-field appearance="fill" class="example-full-width" hideRequiredMarker color="accent">
+        <mat-label style="color: black;">Name</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngIf="formNewsletter.get('name').hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="subjectNewsletter">
+      <mat-form-field appearance="fill" class="example-full-width" hideRequiredMarker color="accent">
+        <mat-label style="color: black;">Subject</mat-label>
+        <input matInput formControlName="subject">
+        <mat-error *ngIf="formNewsletter.get('subject').hasError('required')">
+          Subject is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="subjectNewsletter">
+      <mat-form-field appearance="fill" class="example-full-width" hideRequiredMarker color="accent">
+        <mat-label style="color: black;">Title</mat-label>
+        <input matInput formControlName="title">
+        <mat-error *ngIf="formNewsletter.get('title').hasError('required')">
+          Title is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="subjectNewsletter">
+      <mat-form-field appearance="fill" class="example-full-width" hideRequiredMarker color="accent">
+        <mat-label style="color: black;">Text</mat-label>
+        <textarea style="height: 150px;" matInput formControlName="text"></textarea>
+        <mat-error *ngIf="formNewsletter.get('text').hasError('required')">
+          Text is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <button [disabled]="formNewsletter.invalid" mat-button color="primary" class="btn btn-primary" (click)="postNewsletter()">Enviar</button>
+    </div>
+    <div style="margin-top: 20px;">
+      <button mat-button color="primary" class="btn btn-primary" (click)="back()" [routerLink]="['/detallesLista']">Volver</button>
+    </div>
+  </form>
+</div>

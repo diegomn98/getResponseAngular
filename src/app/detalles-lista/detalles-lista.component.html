@@ -1,0 +1,27 @@
+
+<div id="contactos" class="contactos">
+  <h1 class="titulo">Contactos</h1>
+  <button class="botonAñadir" style="margin-left: 400px;margin-top: 40px;" type="button" class="btn btn-primary" [routerLink]="['/addContact']">Añadir Contacto</button>
+  <button class="botonEnviar" style="margin-left:30px;margin-top: 40px;" type="button" class="btn btn-primary" [routerLink]="['/sendEmail']">Enviar Email</button>
+  <table class="table table-striped">
+    <thead>
+      <tr style="background-color: #367391;color: white;">
+        <th scope="col">#</th>
+        <th scope="col">Contactos</th>
+        <th scope="col">Email</th>
+        <th colspan="2">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contacto of contactos; let i = index">
+        <th scope="row">{{ i+1 }}</th>
+        <td>{{ contactos[i]['name'] }}</td>
+        <td>{{ contactos[i]['email'] }}</td>
+        <td><button type="button" class="btn btn-primary" [routerLink]="['/modificarContacto']" (click)="modificarContacto(contactos[i]['contactId'], contactos[i]['name'], contactos[i]['email'])">Modificar</button></td>
+        <td><button type="button" class="btn btn-primary" (click)="borrarContacto(contactos[i]['contactId'])">Borrar</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <button style="margin-top: 30px;" type="button" class="btn btn-primary" [routerLink]="['/listas']">Volver</button>
+</div>
+

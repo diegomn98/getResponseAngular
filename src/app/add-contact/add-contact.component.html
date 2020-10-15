@@ -1,0 +1,35 @@
+<div class="crearContacto">
+  <h1 class="contacto">Añadir Contacto</h1>
+  <form [formGroup]="formContacto" class="example">
+
+    <div class="nombreLista">
+      <mat-form-field appearance="fill" class="example-full-width" hideRequiredMarker color="accent">
+        <mat-label style="color: black;">Name</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngIf="formContacto.get('name').hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="email-container">
+      <mat-form-field appearance="fill" class="example-full-width" hideRequiredMarker color="accent">
+        <mat-label style="color: black;">Email</mat-label>
+        <input matInput formControlName="email" [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="formContacto.get('email').hasError('email') && !formContacto.get('email').hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="formContacto.get('email').hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <button [disabled]="formContacto.invalid" mat-button color="primary" class="btn btn-primary" (click)="postContacto()">Añadir Contacto</button>
+    </div>
+    <div style="margin-top: 20px;">
+      <button mat-button color="primary" class="btn btn-primary" (click)="back()" [routerLink]="['/detallesLista']">Volver</button>
+    </div>
+  </form>
+</div>

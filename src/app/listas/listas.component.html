@@ -1,0 +1,21 @@
+
+<div id="listas" class="listas">
+  <h1 class="titulo" style="margin-top: 40px;">Listas</h1>
+  <button type="button" class="botonAñadir" style="margin-left: 70%;margin-top: 40px;" class="btn btn-primary" [routerLink]="['/crearLista']">Crear Lista</button>
+  <table class="table">
+    <thead>
+      <tr style="background-color: #367391;color: white;">
+        <th scope="col">#</th>
+        <th scope="col">Nombre Lista</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let lista of listas; let i = index">
+        <th scope="row">{{ i+1 }}</th>
+        <td>{{ listas[i]['name'] }}</td>
+        <td><button type="button" class="btn btn-primary" [routerLink]="['/detallesLista']" (click)="getContactos(listas[i]['campaignId'])">Acceder</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,18 @@
+<div class="crearLista">
+  <h1>Crear una lista</h1>
+  <form [formGroup]="form" class="example">
+    <div class="nombreLista">
+      <mat-form-field appearance="fill" class="example-full-width" hideRequiredMarker color="accent">
+        <mat-label style="color: black;text-align: center;">Nombre de la Lista</mat-label>
+        <input matInput formControlName="nombreLista">
+        <mat-error *ngIf="form.get('nombreLista').invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div style="margin-top: 20px;">
+      <button [disabled]="form.invalid" mat-button color="primary" class="btn btn-primary" (click)="postLista()">Crear Lista</button>
+    </div>
+    <div style="margin-top: 20px;">
+      <button mat-button color="primary" class="btn btn-primary" [routerLink]="['/listas']">Volver</button>
+    </div>
+  </form>
+</div>

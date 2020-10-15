@@ -1,0 +1,36 @@
+<div class="modificarContacto">
+  <h1 style="margin-top: 70px;margin-bottom: 30px;">Modificar Contacto</h1>
+  <form [formGroup]="formModificar" class="example">
+
+    <div class="nombreLista">
+      <mat-form-field appearance="fill" class="example-full-width" hideRequiredMarker color="accent">
+        <mat-label style="color: black;">{{nameContacto}}</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngIf="formModificar.get('name').hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="email-container">
+      <mat-form-field appearance="fill" class="example-full-width" hideRequiredMarker color="accent">
+        <mat-label style="color: black;">{{emailContacto}}</mat-label>
+        <input matInput formControlName="email" [errorStateMatcher]="matcher"
+              placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="formModificar.get('email').hasError('email') && !formModificar.get('email').hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="formModificar.get('email').hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <button [disabled]="formModificar.invalid" mat-button color="primary" class="btn btn-primary" (click)="modificarContacto()">Modificar Contacto</button>
+    </div>
+    <div style="margin-top: 20px;">
+      <button mat-button color="primary" class="btn btn-primary" (click)="back()" [routerLink]="['/detallesLista']">Volver</button>
+    </div>
+  </form>
+</div>

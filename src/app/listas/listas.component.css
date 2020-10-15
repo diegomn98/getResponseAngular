@@ -1,0 +1,32 @@
+.listas{
+  line-height: 70px;
+  margin-top: 100px;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+table{
+  margin-top: 40px;
+  border: 2px solid #367391;
+  font-size: 16px;
+}
+table th{
+  text-align: center;
+  border-bottom: 2px solid #367391;
+  font-family: sans-serif;
+}
+
+table td{
+  text-align: center;
+  border-bottom: 2px solid #367391;
+  font-family: sans-serif;
+}
+
+.titulo{
+  float: left;
+  margin-top: 40px;
+}
+.botonAñadir{
+  float: left;
+}
